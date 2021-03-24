@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AlertStore from "./components/WarningSign";
+import BadgeStore from "./components/MyBadge";
+import OneBook from "./components/SingleBook";
+import BooksList from "./components/ListOfBooks";
+import InputSearch from "./components/FilterBookList";
+import NavBar from "./components/MyNav";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <AlertStore text="This is some example" />
+      <BadgeStore color="success" text="whahahaha" />
+      <InputSearch />
+      <BooksList />
+      <Footer />
+    </>
   );
 }
 
