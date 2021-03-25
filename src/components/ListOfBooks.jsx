@@ -1,13 +1,12 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import books from "../data/books.json";
+import Comments from "./CommentsList";
+import CommentsForm from "./AddComment";
 
 class BooksList extends React.Component {
   state = {
-    book: {
-      title: '',
-      img: '',
-    }
+    selectedBook: books[0],
   };
 
   render() {
@@ -18,7 +17,14 @@ class BooksList extends React.Component {
         <Row className=" row row-cols-2 row-cols-md-3 row-cols-lg-4 mt-3">
           {books.map((book) => (
             <Col style={{ margins: "3px" }}>
-              <Card>
+              <Card
+                key={book.asin}
+                onClick={() =>
+                  this.setState({
+                    selectedBook: book,
+                  })
+                }
+              >
                 <Card.Img
                   style={{ height: "30vw" }}
                   variant="top"
@@ -31,6 +37,16 @@ class BooksList extends React.Component {
               </Card>
             </Col>
           ))}
+        </Row>
+        <Row className=" row row-cols-2 row-cols-md-3 row-cols-lg-4 mt-3">
+          <Col>
+            <Comments />
+          </Col>
+        </Row>
+        <Row className=" row row-cols-2 row-cols-md-3 row-cols-lg-4 mt-3">
+          <Col>
+            <CommentsForm />
+          </Col>
         </Row>
       </Container>
     );
