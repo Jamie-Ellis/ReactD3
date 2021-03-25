@@ -13,8 +13,8 @@ class InputSearch extends React.Component {
     console.log("ID OF THIS INPUT FIELD IS", id);
     this.setState({
       book: {
-        ...this.state.book,
-        [id]: e.target.value,
+       
+       title: e.target.value,
       },
     });
   };
@@ -33,7 +33,7 @@ class InputSearch extends React.Component {
                   type="text"
                   placeholder="Enter Search"
                   onChange={this.handleSearch}
-                  value={this.state.book.name}
+                  value={this.state.book.title}
                 />
               </Form.Group>
               <Button variant="primary" type="submit">
